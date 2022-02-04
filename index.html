@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+      #subscribe:checked+label::before {
+         background-color: #316FEE;
+      }
+      #subscribe:checked+label::after {
+         left: 17px;
+      }
+      .switcher input:checked+label::before {
+         background-color: #316FEE;
+      }
+      .switcher input:checked+label::after {
+         left: 25px;
+      }
+      #email:focus+label {
+         font-size: 10px;
+         top: 15%;
+      }
+   </style>
+   <script>
+      tailwind.config = {
+         theme: {
+            extend: {
+               colors: {
+                  disabled: '#999999',
+                  buttonsColor: '#666666',
+                  articleBg: '#F5F5F8',
+                  activeButton: '#5A8CF1',
+                  baseBg: '#FFFFFF',
+                  blue: '#316FEE',
+               },
+               backgroundImage: {
+                  'arrow': "url('img/icons/arrow.svg')",
+                  'check': "url('img/icons/check.svg')",
+               },
+            },
+            fontSize: {
+               'disabled': ['13px', '1.23'],
+               'buttonsSize': ['16px', '1.5'],
+               'base': ['14px', '1.428'],
+               'h3': ['20px', '1.4'],
+            },
+         }
+      }
+   </script>
+   <title>test Klerk</title>
+</head>
+<body>
+   <div class="container mx-auto lg:px-4 md:px-2 sm:pt-12 pt-9 max-w-[1056px] pb-12">
+
+      <!-- HEADER -->
+      <header class="grid justify-center">
+         <a href="#"><svg class="w-full mb-6" width="76" height="36" viewBox="0 0 76 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1_2463)">
+               <path
+                  d="M73.1422 11C73.1422 14.21 70.1549 17 67.1716 17V11L65.1814 11.0001V25H67.1716V19C70.1569 19 73.1422 21.7912 73.1422 25H75.1324C75.1324 21.0598 73.1422 19 70.3847 18C73.1422 17 75.1324 14.5085 75.1324 11H73.1422ZM8.46078 11C8.46078 14.21 5.47355 17 2.4902 17V11L0.5 11.0001V25H2.4902V19C5.47549 19 8.46078 21.7912 8.46078 25H10.451C10.451 21.0598 8.46078 19 5.70337 18C8.46078 17 10.451 14.5085 10.451 11H8.46078ZM16.6446 12.9536C16.6308 12.9914 12.4412 24.5732 12.4412 24.5732L14.6481 25.36C14.6481 25.36 18.8779 13.6631 18.8825 13.6463C18.9902 13.3232 19.2934 13.3266 19.3932 13.3278C19.5951 13.327 19.8358 13.388 19.9425 13.6831L24.1656 25.36L26.3725 24.5732L22.1688 12.9525C21.9409 12.2484 21.1009 11.0013 19.4187 11.0002C17.6879 10.9868 16.868 12.2236 16.6446 12.9536ZM50.2549 18C50.2549 15.2429 52.4868 13 55.2304 13C57.9739 13 60.2059 15.2429 60.2059 18C60.2059 20.7571 57.9739 23 55.2304 23C52.4868 23 50.2549 20.7571 50.2549 18ZM48.2647 18V34H50.2549V22.51C51.1334 24.0506 53.4758 24.9666 55.2304 25C59.13 24.9666 62.2717 21.8339 62.1961 18C62.2717 14.1327 59.13 11 55.2304 11C51.4065 11 48.2647 14.1327 48.2647 18Z"
+                  fill="black" />
+               <path
+                  d="M44.0442 20.2256L45.5914 21.4214C45.5835 21.432 44.725 22.5291 43.6493 24.6541C42.3339 27.2505 41.7593 28.6841 41.7534 28.6976L41.7131 28.7868C39.7612 32.5345 36.6128 34.2153 33.2905 33.2842C31.5223 32.7876 30.0567 31.6432 29.1627 30.0603C28.2688 28.4764 28.0527 26.6434 28.5547 24.8985L33.1039 9.05904C33.5066 7.6585 34.4379 6.49656 35.7248 5.78757C37.0126 5.07857 38.5028 4.90787 39.9223 5.30553C42.8497 6.12703 44.555 9.1473 43.724 12.0376L43.7171 12.0589L40.2661 23.0751L40.272 23.0537C39.6463 25.2292 37.4586 26.4572 35.2915 25.8499C34.2503 25.558 33.3976 24.9015 32.8897 24.0013C32.371 23.0829 32.2532 21.9926 32.5597 20.9277L35.711 10.1754L37.5981 10.7147L34.4477 21.4622C34.2866 22.0247 34.3426 22.5901 34.6059 23.0566C34.8623 23.5105 35.2847 23.8316 35.8279 23.984C36.9537 24.2992 38.0519 23.6715 38.382 22.5242L38.3889 22.5018C38.3889 22.5018 41.8221 11.5429 41.8339 11.5051C41.9253 11.187 41.9695 10.866 41.9695 10.5498C41.9695 9.02024 40.9479 7.61001 39.385 7.17161C38.4704 6.91556 37.5107 7.02516 36.6816 7.48198C35.8534 7.93783 35.2532 8.6866 34.9939 9.5886L30.4447 25.428C29.705 28.0002 31.2227 30.6868 33.8279 31.4181C37.1904 32.3609 39.216 29.3251 39.9469 27.9352C40.0618 27.654 40.6541 26.2312 41.8919 23.787C43.0668 21.4679 44.0049 20.275 44.0442 20.2256Z"
+                  fill="#EF3124" />
+            </g>
+            <defs>
+               <clipPath id="clip0_1_2463">
+                  <rect width="75" height="36" fill="white" transform="translate(0.5)" />
+               </clipPath>
+            </defs>
+         </svg></a>
+         <nav>
+            <ul class="flex text-disabled sm:mb-6 mb-2">
+               <li class="mr-7 border-[#E6EDFF] border-b after:content-[''] after:bg-arrow relative after:absolute after:h-full after:w-3 after:-right-5 hover:border-[#316FEE]"><a href="#">Главная</a></li>
+               <li class="mr-7 border-[#E6EDFF] border-b after:content-[''] after:bg-arrow relative after:absolute after:h-full after:w-3 after:-right-5 hover:border-[#316FEE]"><a href="#">Рассылки</a></li>
+               <li class="border-[#E6EDFF] border-b hover:border-[#316FEE]"><a href="#">Хлебные крошки</a></li>
+            </ul>
+         </nav>
+      </header>
+
+      <!-- /HEADER -->
+
+
+      <main>
+         <section>
+            <h1 class="text-center font-medium mb-6 sm:text-[56px] text-[32px] sm:leading-[1.2857] leading-[1.3125]">Подписки «Клерка»</h1>
+            <div class="text-center text-buttons js-buttons">
+               <button class="text-activeButton border-activeButton border-b-2 sm:pb-4 pb-3.5 sm:mr-6 mr-8 hover:text-activeButton" data-id="mailing" type="button">Рассылки</button>
+               <button class="sm:mr-6 mr-8 hover:text-activeButton" data-id="social" type="button">Соцсети</button>
+               <button class="hover:text-activeButton" data-id="messager" type="button">Мессенджеры</button>
+            </div>
+
+            <!-- MAILING -->
+
+            <article class="sm:py-12 py-8 sm:px-6 px-4 bg-articleBg sm:rounded-2xl mailing active-tab">
+               <h2 class="sm:text-center font-medium tracking-[-0.24px] sm:mb-6 mb-4 text-[24px] leading-[1.3333]">Выберите рассылки, которые подходят именно вам</h2>
+               <form class="sm:mb-[34px] mb-6" action="#">
+                  <div class="relative mb-4">
+                     <input class="w-[95%] h-14 rounded-l-lg pl-4 focus:outline-0" id="email" type="email">
+                     <label class="absolute text-buttonsColor text-buttonsSize top-1/2 left-4 -translate-y-1/2 duration-150 js-focus" for="email">Электронная почта</label>
+                     <button class="text-baseBg bg-blue rounded-full absolute top-1/2 right-0 -translate-y-1/2 py-4 px-4 sm:px-8 hover:bg-[#638CEA] active:bg-blue">
+                        <span class="hidden sm:block ">Подписаться</span>
+                        <svg class="sm:hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M7.34998 17.355L12.6933 12L7.34998 6.645L8.99498 5L15.995 12L8.99498 19L7.34998 17.355Z" fill="white" />
+                        </svg>
+                     </button>
+                  </div>
+                  <input class="hidden" id="subscribe" type="checkbox">
+                  <label class="after:duration-150 before:duration-150 text-base flex items-center relative before:content-[''] before:inline-block before:bg-[#DCDCDC] before:rounded-full before:mr-2 before:w-8 before:h-4 after:content-[''] after:absolute after:w-3.5 after:h-3.5 after:rounded-full after:bg-baseBg after:left-px w-max cursor-pointer" for="subscribe">Подписаться на все рассылки</label>
+               </form>
+               <div class="grid gap-6 md:grid-cols-2">
+                  <article class="bg-baseBg sm:px-6 px-4 py-6 rounded-2xl hover:shadow-[0_8px_16px_0_rgba(0,0,0,0.08)] sm:flex relative">
+                     <div class="sm:pr-6 md:w-[82%] sm:flex sm:flex-col justify-between">
+                        <div>
+                           <span class="text-disabled">Перед рассветом</span>
+                           <h3 class="text-h3 mb-2 font-medium">Утренний бухгалтер</h3>
+                           <p class="text-buttonsColor text-base mb-4">Самые важные новости и события за день. Кратко, по делу, структурировано.</p>
+                           <ul class="text-base mb-4">
+                              <li class="mb-2 flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2 -mr-px">Новости для бухгалтеров, ИП и директора</li>
+                              <li class="flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">Подборка статей за день</li>
+                           </ul>
+                        </div>
+                        <div class="switcher">
+                           <input class="hidden" id="morning" type="checkbox">
+                           <label class="after:duration-150 before:duration-150 text-base flex items-center relative before:content-[''] before:inline-block before:bg-[#EEEEEE] before:rounded-full before:mr-2 before:w-12 before:h-6 after:content-[''] after:absolute after:w-[22px] after:h-[22px] after:rounded-full after:bg-baseBg after:left-px cursor-pointer md:w-max" for="morning">Уже получает 59 342 человек</label>
+                        </div>
+                     </div>
+                     <div class="sm:static absolute top-6 right-4 sm:w-20 sm:w-[18%] w-10 h-10">
+                        <img class="w-full" src="img/morning.jpg" alt="">
+                     </div>
+                  </article>
+                  <article class="bg-baseBg sm:px-6 px-4 py-6 rounded-2xl hover:shadow-[0_8px_16px_0_rgba(0,0,0,0.08)] sm:flex relative">
+                     <div class="sm:pr-6 sm:w-[82%] sm:flex sm:flex-col justify-between">
+                        <div>
+                           <span class="text-disabled">После заката</span>
+                           <h3 class="text-h3 mb-2 font-medium">Ночной бухгалтер</h3>
+                           <p class="text-buttonsColor text-base mb-4">Самая краткая газета о налогах и бухучете в мире — современная рассылка для чтения.</p>
+                           <ul class="text-base mb-4">
+                              <li
+                                 class="mb-2 flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Анализ, оценка и только самое главное</li>
+                              <li
+                                 class="flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Лучшие комменты юзеров в обзоре</li>
+                           </ul>
+                        </div>
+                        <div class="switcher">
+                           <input class="hidden" id="night" type="checkbox">
+                           <label
+                              class="after:duration-150 before:duration-150 text-base flex items-center relative before:content-[''] before:inline-block before:bg-[#EEEEEE] before:rounded-full before:mr-2 before:w-12 before:h-6 after:content-[''] after:absolute after:w-[22px] after:h-[22px] after:rounded-full after:bg-baseBg after:left-px cursor-pointer md:w-max"
+                              for="night">Уже получает 37 480 человек</label>
+                        </div>
+                     </div>
+                     <div class="sm:static absolute top-6 right-4 sm:w-20 sm:w-[18%] w-10 h-10">
+                        <img class="w-full" src="img/night.jpg" alt="">
+                     </div>
+                  </article>
+                  <article class="bg-baseBg sm:px-6 px-4 py-6 rounded-2xl hover:shadow-[0_8px_16px_0_rgba(0,0,0,0.08)] sm:flex relative">
+                     <div class="sm:pr-6 sm:w-[82%] sm:flex sm:flex-col justify-between">
+                        <div>
+                           <span class="text-disabled">Раз в две недели</span>
+                           <h3 class="text-h3 mb-2 font-medium">Ножницы скидок</h3>
+                           <p class="text-buttonsColor text-base mb-4">Подборка самых выгодных и полезных спецпредложений от надежных компаний.</p>
+                           <ul class="text-base mb-4">
+                              <li
+                                 class="mb-2 flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Акции и скидки от лидеров рынка</li>
+                              <li
+                                 class="flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Те, кто подписался – экономят много денег</li>
+                           </ul>
+                        </div>
+                        <div class="switcher">
+                           <input class="hidden" id="scissors" type="checkbox">
+                           <label
+                              class="after:duration-150 before:duration-150 text-base flex items-center relative before:content-[''] before:inline-block before:bg-[#EEEEEE] before:rounded-full before:mr-2 before:w-12 before:h-6 after:content-[''] after:absolute after:w-[22px] after:h-[22px] after:rounded-full after:bg-baseBg after:left-px cursor-pointer md:w-max"
+                              for="scissors">Уже получает 92 118 человек</label>
+                        </div>
+                     </div>
+                     <div class="sm:static absolute top-6 right-4 sm:w-20 sm:w-[18%] w-10 h-10">
+                        <img class="w-full" src="img/scissors.jpg" alt="">
+                     </div>
+                  </article>
+                  <article class="bg-baseBg sm:px-6 px-4 py-6 rounded-2xl hover:shadow-[0_8px_16px_0_rgba(0,0,0,0.08)] sm:flex relative">
+                     <div class="sm:pr-6 sm:w-[82%] sm:flex sm:flex-col justify-between">
+                        <div>
+                           <span class="text-disabled">По мере появления анонсов</span>
+                           <h3 class="text-h3 mb-2 font-medium">Чемодан вебинаров</h3>
+                           <p class="text-buttonsColor text-base mb-4">Подборка с анонсами бесплатных вебинаров
+                           на самые топовые темы при участии экспертов.</p>
+                           <ul class="text-base mb-4">
+                              <li
+                                 class="mb-2 font-medium flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Никогда не пришлем платные вебинары</li>
+                              <li
+                                 class="flex sm:items-center before:content-[''] before:w-4 before:h-4 before:inline-block before:bg-check before:mr-2">
+                                 Подборка топовых тем для вебинаров</li>
+                           </ul>
+                        </div>
+                        <div class="switcher">
+                           <input class="hidden" id="free" type="checkbox">
+                           <label
+                              class="after:duration-150 before:duration-150 text-base flex items-center relative before:content-[''] before:inline-block before:bg-[#EEEEEE] before:rounded-full before:mr-2 before:w-12 before:h-6 after:content-[''] after:absolute after:w-[22px] after:h-[22px] after:rounded-full after:bg-baseBg after:left-px cursor-pointer md:w-max"
+                              for="free">Уже получает 92 082 человек</label>
+                        </div>
+                     </div>
+                     <div class="sm:static absolute top-6 right-4 sm:w-20 sm:w-[18%] w-10 h-10">
+                        <img class="w-full" src="img/free.jpg" alt="">
+                     </div>
+                  </article>
+               </div>
+            </article>
+
+            <!-- /MAILING -->
+
+            <!-- SOCIAL -->
+            
+            <article class="sm:py-12 py-8 sm:px-6 px-4 bg-articleBg sm:rounded-2xl social hidden">
+               <h2 class="sm:text-center font-medium tracking-[-0.24px] sm:mb-6 mb-4 text-[24px] leading-[1.3333]">Выберите
+                  соц. сети, которые подходят именно вам</h2>
+            </article>
+            
+            <!-- /SOCIAL -->
+
+
+            <!-- MESSAGER -->
+            
+            <article class="sm:py-12 py-8 sm:px-6 px-4 bg-articleBg sm:rounded-2xl messager hidden">
+               <h2 class="sm:text-center font-medium tracking-[-0.24px] sm:mb-6 mb-4 text-[24px] leading-[1.3333]">Выберите
+                  месседжеры, которые подходят именно вам</h2>
+            </article>
+            
+            <!-- /MESSAGER -->
+
+         </section>
+      </main>
+
+      <!-- FOOTER -->
+
+      <footer class="grid justify-center">
+         <svg width="196" height="96" viewBox="0 0 196 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.0993 55.7463H0.93335V52.4979H16.0993V55.7463Z" fill="black" />
+            <path d="M19.8005 52.248H23.7726L37.4942 88.1628H33.5221L19.8005 52.248Z" fill="black" />
+            <path d="M58.6182 88.7534H37.9455V85.3232H58.6182V88.7534Z" fill="black" />
+            <path
+               d="M61.71 71.8978C61.71 68.4752 62.1614 65.1888 63.0641 62.0388C63.9819 58.8888 65.3436 56.0265 67.149 53.452C68.9545 50.8774 70.8277 49.0601 72.7686 48L73.6262 50.7714C71.4295 52.4676 69.624 55.0573 68.2097 58.5405C66.8105 62.0237 66.0432 65.9233 65.9078 70.2395L65.8852 72.1704C65.8852 78.0161 66.9459 83.0894 69.0673 87.3904C70.3462 89.965 71.8658 91.9792 73.6262 93.433L72.7686 96C70.7675 94.8793 68.8567 93.0014 67.0362 90.3663C63.4854 85.2172 61.71 79.0611 61.71 71.8978Z"
+               fill="black" />
+            <path
+               d="M95.5827 50.3376L92.0237 51.5472C93.1792 53.9664 95.8138 61.1776 96.5533 63.8294L100.158 62.5733C99.3727 59.968 96.5995 52.5707 95.5827 50.3376ZM116.104 53.3151L111.852 52.1055C110.928 59.084 108.108 66.5278 104.457 71.2266C99.7887 77.1816 92.9019 81.6479 86.2924 83.6019L89.4816 86.8585C95.9986 84.5323 102.839 79.7404 107.6 73.4132C111.39 68.3887 113.886 61.7359 115.272 55.967C115.457 55.2226 115.781 54.106 116.104 53.3151ZM82.6873 53.129L79.0359 54.4782C80.1452 56.4787 83.3344 64.3412 84.2125 67.2256L87.8639 65.8764C86.8009 62.8524 83.889 55.7343 82.6873 53.129Z"
+               fill="black" />
+            <path
+               d="M133.523 72.1249C133.523 75.5021 133.079 78.743 132.191 81.8476C131.318 84.9371 129.972 87.7918 128.151 90.4117C126.346 93.0317 124.45 94.8945 122.464 96L121.584 93.433C123.901 91.646 125.759 88.8746 127.158 85.1188C128.573 81.3478 129.295 77.168 129.325 72.5793V71.8523C129.325 68.672 128.994 65.7189 128.332 62.9929C127.67 60.2518 126.745 57.7984 125.556 55.6327C124.382 53.4671 123.058 51.7785 121.584 50.567L122.464 48C124.45 49.1055 126.338 50.9531 128.129 53.5428C129.934 56.1325 131.281 58.9872 132.169 62.107C133.071 65.2267 133.523 68.566 133.523 72.1249Z"
+               fill="black" />
+            <path d="M157.558 88.7534H136.885V85.3232H157.558V88.7534Z" fill="black" />
+            <path d="M161.643 88.1628H158.055L171.776 52.248H175.342L161.643 88.1628Z" fill="black" />
+            <path d="M195.067 55.7463H179.901V52.4979H195.067V55.7463Z" fill="black" />
+         </svg>
+      </footer>
+
+      <!-- /FOOTER -->
+   </div>
+
+
+   <script>
+      const emailLabel = document.querySelector('.js-focus');
+      const emailInput = document.querySelector('#email');
+      
+      emailInput.addEventListener('input', function() {
+         if (emailInput.value.length >= 1) {
+            emailLabel.style.top = '15%';
+            emailLabel.style.fontSize = '10px';
+         } else {
+            emailLabel.style.top = '50%';
+            emailLabel.style.fontSize = '16px';
+         }
+      })
+
+      const tabs = document.querySelector('.js-buttons');
+      const mailing = document.querySelector('.mailing');
+      const social = document.querySelector('.social');
+      const messager = document.querySelector('.messager');
+
+      tabs.addEventListener('click', function(e) {
+         // console.dir(e.target)
+         if (e.target.type === 'button') {
+            document.querySelector('.active-tab').classList.add('hidden');
+            document.querySelector('.active-tab').classList.remove('active-tab');
+            document.querySelector('.text-activeButton').classList.remove('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+            
+            switch (e.target.dataset.id) {
+               case ('social'): {
+                  social.classList.remove('hidden');
+                  social.classList.add('active-tab');
+                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  break
+               }
+               case ('messager'): {
+                  messager.classList.remove('hidden');
+                  messager.classList.add('active-tab')
+                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  break
+               }
+               case ('mailing'): {
+                  mailing.classList.remove('hidden');
+                  mailing.classList.add('active-tab')
+                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  break
+               }
+            }
+         }
+      })
+
+      const subscribe = document.querySelector('#subscribe');
+      const checkboxes = document.querySelectorAll('input[type=checkbox]')
+
+      let subscribeAll = false;
+      subscribe.addEventListener('click', function() {
+         if (!subscribeAll) {
+            checkboxes.forEach(item => {
+               item.checked = true;
+            })
+            subscribeAll = true;
+         } else {
+            checkboxes.forEach(item => {
+               item.checked = false;
+            })
+            subscribeAll = false;
+         }
+      })
+
+   </script>
+</body>
+</html>
