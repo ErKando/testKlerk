@@ -87,9 +87,9 @@
          <section>
             <h1 class="text-center font-medium mb-6 sm:text-[56px] text-[32px] sm:leading-[1.2857] leading-[1.3125]">Подписки «Клерка»</h1>
             <div class="text-center text-buttons js-buttons">
-               <button class="text-activeButton border-activeButton border-b-2 sm:pb-4 pb-3.5 sm:mr-6 mr-8 hover:text-activeButton" data-id="mailing" type="button">Рассылки</button>
-               <button class="sm:mr-6 mr-8 hover:text-activeButton" data-id="social" type="button">Соцсети</button>
-               <button class="hover:text-activeButton" data-id="messager" type="button">Мессенджеры</button>
+               <button class="text-activeButton border-activeButton border-b-2 sm:pb-4 pb-3.5 sm:mr-6 mr-8 hover:text-activeButton duration-150" data-id="mailing" type="button">Рассылки</button>
+               <button class="sm:mr-6 mr-8 hover:text-activeButton sm:pb-4 pb-3.5 border-b-2 border-transparent duration-150" data-id="social" type="button">Соцсети</button>
+               <button class="hover:text-activeButton sm:pb-4 pb-3.5 duration-150 border-b-2 border-transparent" data-id="messager" type="button">Мессенджеры</button>
             </div>
 
             <!-- MAILING -->
@@ -283,29 +283,32 @@
       const messager = document.querySelector('.messager');
 
       tabs.addEventListener('click', function(e) {
-         // console.dir(e.target)
          if (e.target.type === 'button') {
             document.querySelector('.active-tab').classList.add('hidden');
             document.querySelector('.active-tab').classList.remove('active-tab');
-            document.querySelector('.text-activeButton').classList.remove('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+            document.querySelector('.text-activeButton').classList.add('border-transparent');
+            document.querySelector('.text-activeButton').classList.remove('text-activeButton', 'border-activeButton');
             
             switch (e.target.dataset.id) {
                case ('social'): {
                   social.classList.remove('hidden');
                   social.classList.add('active-tab');
-                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  e.target.classList.remove('border-transparent');
+                  e.target.classList.add('text-activeButton', 'border-activeButton');
                   break
                }
                case ('messager'): {
                   messager.classList.remove('hidden');
                   messager.classList.add('active-tab')
-                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  e.target.classList.remove('border-transparent');
+                  e.target.classList.add('text-activeButton', 'border-activeButton');
                   break
                }
                case ('mailing'): {
                   mailing.classList.remove('hidden');
                   mailing.classList.add('active-tab')
-                  e.target.classList.add('text-activeButton', 'border-activeButton', 'border-b-2', 'sm:pb-4', 'pb-3.5');
+                  e.target.classList.remove('border-transparent');
+                  e.target.classList.add('text-activeButton', 'border-activeButton');
                   break
                }
             }
